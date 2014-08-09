@@ -1,7 +1,7 @@
 UTAU Bulk Envelope Editor
 ======================
 
-Plugin for UTAU, for bulk-editing note envelopes in UST files.
+Plugin for [UTAU](http://en.wikipedia.org/wiki/Utau), for bulk-editing note envelopes in UST files.
 
 ![Screenshot](https://github.com/riipah/utauBulkEnvelopeEditor/blob/master/media/screenshot.png)
 
@@ -14,6 +14,6 @@ Plugin for UTAU, for bulk-editing note envelopes in UST files.
 
 ## Installation ##
 
-1. Make sure .NET framework 4.5.1 (or newer) is installed.
-2. Build (requires Visual Studio 2013) or download the binary.
+1. Make sure [.NET framework 4.5.1](http://www.microsoft.com/fi-fi/download/details.aspx?id=40773) (or newer) is installed.
+2. Build (requires Visual Studio 2013) or [download the binary](http://vocaloid.eu/files/bulkEnvelopeEdit.zip).
 3. Copy the binary AND plugin.txt to the plugin folder under UTAU's installation folder, for example C:\UTAU\plugins\bulkEnvelopeEdit
