@@ -1,0 +1,6 @@
+BulkEnvelopeEditor.Tests/bin/
+BulkEnvelopeEditor.Tests/obj/
+BulkEnvelopeEditor/bin/
+BulkEnvelopeEditor/obj/
+*.suo
+*.user

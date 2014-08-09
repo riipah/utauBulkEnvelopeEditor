@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BulkEnvelopeEditor", "BulkEnvelopeEditor\BulkEnvelopeEditor.csproj", "{C6748317-ABBE-4970-91D6-41BD3DCCFA34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BulkEnvelopeEditor.Tests", "BulkEnvelopeEditor.Tests\BulkEnvelopeEditor.Tests.csproj", "{8EEFF9BE-161A-4E50-B9D0-85A973CA7346}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6748317-ABBE-4970-91D6-41BD3DCCFA34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6748317-ABBE-4970-91D6-41BD3DCCFA34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6748317-ABBE-4970-91D6-41BD3DCCFA34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6748317-ABBE-4970-91D6-41BD3DCCFA34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EEFF9BE-161A-4E50-B9D0-85A973CA7346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EEFF9BE-161A-4E50-B9D0-85A973CA7346}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EEFF9BE-161A-4E50-B9D0-85A973CA7346}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EEFF9BE-161A-4E50-B9D0-85A973CA7346}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
