@@ -14,5 +14,6 @@ Plugin for UTAU, for bulk-editing note envelopes in UST files.
 
 ## Installation ##
 
-1. Build or download the binary.
-2. Copy the binary AND plugin.txt to the plugin folder under UTAU's installation folder, for example C:\UTAU\plugins\bulkEnvelopeEdit
+1. Make sure .NET framework 4.5.1 (or newer) is installed.
+2. Build (requires Visual Studio 2013) or download the binary.
+3. Copy the binary AND plugin.txt to the plugin folder under UTAU's installation folder, for example C:\UTAU\plugins\bulkEnvelopeEdit
