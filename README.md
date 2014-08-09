@@ -17,3 +17,6 @@ Plugin for [UTAU](http://en.wikipedia.org/wiki/Utau), for bulk-editing note enve
 1. Make sure [.NET framework 4.5.1](http://www.microsoft.com/fi-fi/download/details.aspx?id=40773) (or newer) is installed.
 2. Build (requires Visual Studio 2013) or [download the binary](http://vocaloid.eu/files/bulkEnvelopeEdit.zip).
 3. Copy the binary AND plugin.txt to the plugin folder under UTAU's installation folder, for example C:\UTAU\plugins\bulkEnvelopeEdit
+
+- - -
+Thanks to a friend for the idea (you know who you are :))

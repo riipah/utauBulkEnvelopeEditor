@@ -167,7 +167,7 @@
 			this.doItBtn.Name = "doItBtn";
 			this.doItBtn.Size = new System.Drawing.Size(141, 32);
 			this.doItBtn.TabIndex = 23;
-			this.doItBtn.Text = "Do ittttt";
+			this.doItBtn.Text = "Save changes";
 			this.doItBtn.UseVisualStyleBackColor = true;
 			this.doItBtn.Click += new System.EventHandler(this.doItBtn_Click);
 			// 
