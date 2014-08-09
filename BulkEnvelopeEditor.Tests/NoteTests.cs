@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace BulkEnvelopeEditor.Tests {
 
 	[TestClass]
-	public class MainFormTests {
+	public class NoteTests {
 
 		public string[] processSounds = { "b", "br", "br6", "br666", "in", "inex", ".", "x" };
 		public string[] skipSounds = { "", "ba", "mi", "ま", "brederp", "brea", "i", "xyz", "xx" };

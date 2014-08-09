@@ -51,14 +51,19 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="MainFormTests.cs" />
+    <Compile Include="FilePatcherTests.cs" />
+    <Compile Include="NoteTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestData\ResourceHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BulkEnvelopeEditor\BulkEnvelopeEditor.csproj">
       <Project>{c6748317-abbe-4970-91d6-41bd3dccfa34}</Project>
       <Name>BulkEnvelopeEditor</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TestData\tmp1414.tmp" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

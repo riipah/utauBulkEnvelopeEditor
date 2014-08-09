@@ -17,6 +17,9 @@ namespace BulkEnvelopeEditor {
 		public bool IsBreathOrRest {
 			get {
 				
+				if (string.IsNullOrEmpty(Lyric))
+					return false;
+
 				var regex = new Regex(@"[Rrx\.]|(breath\d*)|(br?e?\d*)|(inex\d*)|(in\d*)");
 				var match = regex.Match(Lyric);
 				return (match.Success && match.Value == Lyric);
