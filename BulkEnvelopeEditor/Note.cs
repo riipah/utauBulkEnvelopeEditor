@@ -7,7 +7,7 @@ namespace BulkEnvelopeEditor {
 		public string Envelope { get; set; }
 
 		/// <summary>
-		/// Original line number of the Envelope parameter.
+		/// Original line number of the Envelope parameter, starting from 0!
 		/// </summary>
 		public int EnvelopeLineNumber { get; set; }
 
@@ -40,10 +40,13 @@ namespace BulkEnvelopeEditor {
 		public string Lyric { get; set; }
 
 		/// <summary>
-		/// Line number where this note ends.
+		/// Line number where this note ends, starting from 0!
 		/// </summary>
 		public int NoteEndLine { get; set; }
 
+		public override string ToString() {
+			return string.Format("Note '{0}'", Lyric);
+		}
 	}
 
 }

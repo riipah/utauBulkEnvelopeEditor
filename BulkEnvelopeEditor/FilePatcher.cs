@@ -5,9 +5,8 @@ namespace BulkEnvelopeEditor {
 
 	public class FilePatcher {
 
-		public string[] GetLines(string[] linesArr, int minLength, int? p3, int? v3, int? p4, int? v4, int? p5, int? v5, ref int notesCount) {
-			
-			var notes = new NoteReader().ReadNotes(linesArr);
+		public string[] GetLines(string[] linesArr, Note[] notes, int minLength, int? p3, int? v3, int? p4, int? v4, int? p5, int? v5, ref int notesCount) {
+
 			Note previousNote = null;
 			var lineOffset = 0;
 			var lines = linesArr.ToList();
@@ -72,6 +71,13 @@ namespace BulkEnvelopeEditor {
 			}
 			
 			return lines.ToArray();
+
+		}
+
+		public string[] GetLines(string[] linesArr, int minLength, int? p3, int? v3, int? p4, int? v4, int? p5, int? v5, ref int notesCount) {
+			
+			var notes = new NoteReader().ReadNotes(linesArr);
+			return GetLines(linesArr, notes, minLength, p3, v3, p4, v4, p5, v5, ref notesCount);
 
 		}
 

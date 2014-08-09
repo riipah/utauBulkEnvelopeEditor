@@ -4,6 +4,9 @@ using System.Text.RegularExpressions;
 
 namespace BulkEnvelopeEditor {
 
+	/// <summary>
+	/// Parses a UST file and reads notes from the file.
+	/// </summary>
 	public class NoteReader {
 
 		// Regex for detecting section title
