@@ -1,0 +1,3 @@
+name=BulkEnvelopeEdit
+execute=BulkEnvelopeEditor.exe
+shell=use
