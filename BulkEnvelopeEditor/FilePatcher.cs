@@ -1,100 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace BulkEnvelopeEditor {
 
 	public class FilePatcher {
 
-		// Regex for detecting section title
-		private static readonly Regex sectionTitleRegex = new Regex(@"\[#(\w+)\]");
-		private static readonly Regex keyRegex = new Regex(@"(\w+=)");
-
-		// Read key=value from a line
-		private Tuple<string, string> ReadKeyValue(string line) {
+		public string[] GetLines(string[] linesArr, int minLength, int? p3, int? v3, int? p4, int? v4, int? p5, int? v5, ref int notesCount) {
 			
-			var match = keyRegex.Match(line);
+			var notes = new NoteReader().ReadNotes(linesArr);
+			Note previousNote = null;
+			var lineOffset = 0;
+			var lines = linesArr.ToList();
 
-			if (!match.Success)
-				return null;
-
-			var keyAndEquals = match.Groups[1].Value;
-			var key = keyAndEquals.Substring(0, keyAndEquals.Length - 1).ToLowerInvariant();
-
-			return Tuple.Create(key, line.Substring(key.Length + 1));
-
-		} 
-
-		public string[] GetLines(string[] lines, int minLength, int? p3, int? v3, int? p4, int? v4, int? p5, int? v5, ref int notesCount) {
-			
-			var previousNote = new Note();
-			var currentNote = new Note();
-
-			for (int i = 0; i < lines.Length; ++i) {
-
-				var line = lines[i];
-
-				var titleMatch = sectionTitleRegex.Match(line);
-
-				if (titleMatch.Success) {
-
-					var noteTitle = titleMatch.Groups[1].Value;
-
-					previousNote = currentNote;
-					previousNote.NoteEndLine = i - 1;
-
-					currentNote = new Note();
-
-					currentNote.IsSelectedInUtau = 
-						!noteTitle.Equals("version", StringComparison.InvariantCultureIgnoreCase) && 
-						!noteTitle.Equals("setting", StringComparison.InvariantCultureIgnoreCase) && 
-						!noteTitle.Equals("prev", StringComparison.InvariantCultureIgnoreCase) && 
-						!noteTitle.Equals("next", StringComparison.InvariantCultureIgnoreCase);
-
-				}
-					
-				var keyValuePair = ReadKeyValue(line);
-
-				if (keyValuePair == null)
-					continue;
-
-				var key = keyValuePair.Item1;
-				var val = keyValuePair.Item2;
-
-				if (key == "lyric") {
-
-					currentNote.Lyric = val;
-
-				}
-
-				if (key == "length") {
-
-					currentNote.Length = int.Parse(val);
-
-				}
-
-				/*if (line.ToLowerInvariant().StartsWith("lyric=")) {
+			foreach (var note in notes) {
 				
-					MessageBox.Show(line);
-
-				}*/
-
-				if (key == "envelope") {
-	
-					currentNote.Envelope = val;
-					currentNote.EnvelopeLineNumber = i;
-					
-				}
-				
-				if (previousNote.Length >= minLength && previousNote.IsSelectedInUtau && currentNote.IsBreathOrRest) {
+				if (previousNote != null && previousNote.Length >= minLength && previousNote.IsSelectedInUtau && note.IsBreathOrRest) {
 
 					// If the previous note didn't contain Envelope line, create default
 					if (string.IsNullOrEmpty(previousNote.Envelope)) {
 						previousNote.Envelope = "0,0,0,0,100,100,0"; // No envelope specified, assume default
 						previousNote.EnvelopeLineNumber = previousNote.NoteEndLine;
+						lines.Insert(previousNote.NoteEndLine + lineOffset, previousNote.Envelope);
+						lineOffset++;
 					}
 
 					var envelope = previousNote.Envelope;
@@ -131,16 +58,20 @@ namespace BulkEnvelopeEditor {
 
 					var newEnv = string.Join(",", envVals);
 
-					if (lines[previousNote.EnvelopeLineNumber] != "Envelope=" + newEnv) {
-						lines[previousNote.EnvelopeLineNumber] = "Envelope=" + newEnv;
+					var actualLineNumber = previousNote.EnvelopeLineNumber + lineOffset;
+
+					if (lines[actualLineNumber] != "Envelope=" + newEnv) {
+						lines[actualLineNumber] = "Envelope=" + newEnv;
 						notesCount++;						
 					}
 
 				}
 
+				previousNote = note;
+
 			}
 			
-			return lines;
+			return lines.ToArray();
 
 		}
 
