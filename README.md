@@ -3,6 +3,8 @@ UTAU Bulk Envelope Editor
 
 Plugin for UTAU, for bulk-editing note envelopes in UST files.
 
+![Screenshot](https://github.com/riipah/utauBulkEnvelopeEditor/blob/master/media/screenshot.png)
+
 ## How to use ##
 
 1. Select one or more notes in UTAU.
