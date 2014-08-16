@@ -14,7 +14,7 @@ namespace BulkEnvelopeEditor {
 			foreach (var note in notes) {
 				
 				// Patch notes preceeding breaths or rests that are longer than the specified length.
-				if (previousNote != null && previousNote.Length >= minLength && previousNote.IsSelectedInUtau && note.IsBreathOrRest) {
+				if (previousNote != null && previousNote.Length >= minLength && previousNote.IsSelectedInUtau && !previousNote.IsBreathOrRest && note.IsBreathOrRest) {
 
 					// If the previous note didn't contain Envelope line, create default
 					if (string.IsNullOrEmpty(previousNote.Envelope)) {
