@@ -2,6 +2,7 @@
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using UtauLib;
 
 namespace BulkEnvelopeEditor {
 	public partial class MainForm : Form {
@@ -27,7 +28,7 @@ namespace BulkEnvelopeEditor {
 		private void doItBtn_Click(object sender, EventArgs e) {
 
 			var minLength = int.Parse(minLengthBox.Text);
-			var lines = File.ReadAllLines(USTFile, Encoding.GetEncoding("shift_jis"));
+			var lines = File.ReadAllLines(USTFile, Helpers.Shift_JIS);
 			var notesCount = 0;
 
 			var p3 = ReadVal(p3Box);

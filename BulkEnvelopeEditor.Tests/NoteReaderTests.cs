@@ -21,7 +21,8 @@ namespace BulkEnvelopeEditor.Tests {
 
 			if (testEnvelope) {
 				Assert.AreEqual(envelope, note.Envelope, "Envelope");
-				Assert.AreEqual(envelopeLinNum, note.EnvelopeLineNumber, "EnvelopeLineNumber");
+				if (envelopeLinNum.HasValue)
+					Assert.AreEqual(envelopeLinNum, note.EnvelopeComponent.LineNumber, "EnvelopeLineNumber");
 			}
 
 		}
@@ -51,7 +52,7 @@ namespace BulkEnvelopeEditor.Tests {
 			AssertNote(firstRest, "R", 240, true, 45);
 
 			var secondEditableNote = notes[9];
-			AssertNote(secondEditableNote, "te", 480, false, 113, null, 0, true); // No envelope
+			AssertNote(secondEditableNote, "te", 480, false, 113, null, null, true); // No envelope
 
 		}
 

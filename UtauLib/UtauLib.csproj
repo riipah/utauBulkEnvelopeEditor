@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="NoteReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

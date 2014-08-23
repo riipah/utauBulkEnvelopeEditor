@@ -45,7 +45,7 @@ namespace UtauLib {
 
 					currentNote.NoteEndLine = i - 1;
 
-					currentNote = new Note();
+					currentNote = new Note { StartLine = i };
 					notes.Add(currentNote);
 
 					currentNote.IsSelectedInUtau = 
@@ -66,7 +66,7 @@ namespace UtauLib {
 
 				if (key == "lyric") {
 
-					currentNote.Lyric = val;
+					currentNote.LyricComponent = NoteComponent.Create(val, i);
 
 				}
 
@@ -78,8 +78,7 @@ namespace UtauLib {
 
 				if (key == "envelope") {
 	
-					currentNote.Envelope = val;
-					currentNote.EnvelopeLineNumber = i;
+					currentNote.EnvelopeComponent = NoteComponent.Create(val, i);
 					
 				}
 

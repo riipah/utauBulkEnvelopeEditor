@@ -4,12 +4,16 @@ namespace UtauLib {
 
 	public class Note {
 
-		public string Envelope { get; set; }
+		public string Envelope {
+			get {
+				return EnvelopeComponent.Value;
+			}
+			set {
+				EnvelopeComponent = NoteComponent.Create(value, EnvelopeComponent.LineNumber);
+			}
+		}
 
-		/// <summary>
-		/// Original line number of the Envelope parameter, starting from 0!
-		/// </summary>
-		public int EnvelopeLineNumber { get; set; }
+		public NoteComponent<string> EnvelopeComponent { get; set; } 
 
 		/// <summary>
 		/// Whether the lyric of this note represents a breath or rest sound.
@@ -37,16 +41,49 @@ namespace UtauLib {
 
 		public int Length { get; set; }
 
-		public string Lyric { get; set; }
+		public string Lyric {
+			get {
+				return LyricComponent.Value;
+			}
+			set {
+				LyricComponent = NoteComponent.Create(value, LyricComponent.LineNumber);
+			}
+		}
+
+		public NoteComponent<string> LyricComponent { get; set; } 
 
 		/// <summary>
 		/// Line number where this note ends, starting from 0!
 		/// </summary>
 		public int NoteEndLine { get; set; }
 
+		public int StartLine { get; set; }
+
 		public override string ToString() {
 			return string.Format("Note '{0}'", Lyric);
 		}
+	}
+
+	public struct NoteComponent {
+		public static NoteComponent<T> Create<T>(T value, int lineNumber) {
+			return new NoteComponent<T>(value, lineNumber);
+		} 		
+	}
+
+	public struct NoteComponent<T> {
+
+		public NoteComponent(T value, int lineNumber)
+			: this() {
+
+			Value = value;
+			LineNumber = lineNumber;
+
+		} 
+
+		public int LineNumber { get; set; }
+
+		public T Value { get; set; }
+
 	}
 
 }

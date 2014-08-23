@@ -19,8 +19,8 @@ namespace BulkEnvelopeEditor {
 
 					// If the previous note didn't contain Envelope line, create default
 					if (string.IsNullOrEmpty(previousNote.Envelope)) {
-						previousNote.Envelope = "0,0,0,0,100,100,0"; // No envelope specified, assume default
-						previousNote.EnvelopeLineNumber = previousNote.NoteEndLine;
+						// No envelope specified, assume default
+						previousNote.EnvelopeComponent = NoteComponent.Create("0,0,0,0,100,100,0", previousNote.NoteEndLine);
 						lines.Insert(previousNote.NoteEndLine + lineOffset, previousNote.Envelope);
 						lineOffset++;
 					}
@@ -59,7 +59,7 @@ namespace BulkEnvelopeEditor {
 
 					var newEnv = string.Join(",", envVals);
 
-					var actualLineNumber = previousNote.EnvelopeLineNumber + lineOffset;
+					var actualLineNumber = previousNote.EnvelopeComponent.LineNumber + lineOffset;
 
 					if (lines[actualLineNumber] != "Envelope=" + newEnv) {
 						lines[actualLineNumber] = "Envelope=" + newEnv;
