@@ -62,6 +62,10 @@
       <Project>{c6748317-abbe-4970-91d6-41bd3dccfa34}</Project>
       <Name>BulkEnvelopeEditor</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UtauLib\UtauLib.csproj">
+      <Project>{f0b442c6-8825-4d0d-b107-37d5812ac46a}</Project>
+      <Name>UtauLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="TestData\tmp1414.tmp" />

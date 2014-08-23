@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace BulkEnvelopeEditor {
+namespace UtauLib {
 
 	/// <summary>
 	/// Parses a UST file and reads notes from the file.

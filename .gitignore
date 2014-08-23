@@ -4,3 +4,5 @@ BulkEnvelopeEditor/bin/
 BulkEnvelopeEditor/obj/
 *.suo
 *.user
+UtauLib/bin/
+UtauLib/obj/

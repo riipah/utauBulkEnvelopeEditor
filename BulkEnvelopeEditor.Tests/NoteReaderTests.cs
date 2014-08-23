@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BulkEnvelopeEditor.Tests.TestData;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using UtauLib;
 
 namespace BulkEnvelopeEditor.Tests {
 
